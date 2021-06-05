@@ -6,11 +6,13 @@ docker images
 docker run -ti [nombre de la imagen]:[TAG]
 # --rm para que el docker se elimine una vez se termine el proceso
 docker run -rm [nombre de la imagen]:[TAG]
-# -d dettached para que se ejecute como un proceso independiente a la sesion de la terminal
+# -d dettached para ejecutar en background
 docker run -d [nombre de la imagen]:[TAG]
 #--name colocarle un nombre al docker
 docker run --name [NOMBRE DEL CONTAINER]-d [nombre de la imagen]:[TAG]
-
+# -p para especificar puertos
+docker run -p [outside port]:[inside port]/[protocol]
+docker tun -p 1234:1234/udp
 
 #correr el getting starter
 docker run -d -p 80:80 docker/getting-started
@@ -36,3 +38,14 @@ docker logs [NOMBRE CONTAINER]
 #docker kill matar un docker
 docker kill [NOMBRE CONTAINER]
 
+#localhost dentro de los docker
+host.docker.internal
+
+#mostrar puertos de un docker
+docker port [NOMBRE CONTAINER]
+
+#listar las redes
+docker network ls
+
+#crear una red
+docker network create [nombre de la red]
