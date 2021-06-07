@@ -13,7 +13,10 @@ docker run --name [NOMBRE DEL CONTAINER]-d [nombre de la imagen]:[TAG]
 # -p para especificar puertos
 docker run -p [outside port]:[inside port]/[protocol]
 docker tun -p 1234:1234/udp
-
+#para especificar una network
+docker run --network [NOMBRE DE RED]
+#para linkear con otro docker
+docker run --rm -ti --link [NOMBRE DEL OTRO DOCKER] --name [NOMBRE DEL DOCKER]
 #correr el getting starter
 docker run -d -p 80:80 docker/getting-started
 
@@ -49,3 +52,7 @@ docker network ls
 
 #crear una red
 docker network create [nombre de la red]
+
+#conectar un docker a una red
+docker network connect [NOMBRE DE LA RED] [NOMBRE DEL DOCKER]
+
