@@ -6,6 +6,10 @@ apt-get install netcat
 apt-get update
 apt install iputils-ping
 
+#Una variante para instalar las cosas y forzarlo a que le diga que SI  a todo
+apt-get -y update
+apt install -y iputils-ping
+
 #echo server con netcat
 nc -lp 45678 | nc -lp 45679
 
