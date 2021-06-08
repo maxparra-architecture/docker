@@ -17,3 +17,12 @@ nc -lp 45678 | nc -lp 45679
 nc localhost 45678
 nc localhost 45679
 
+#Instalar utilities de brdige
+apt-get install bridge-utils
+
+#mostrar los bridges
+brctl show
+
+#mostrar tablas de ip
+apt-get install iptables
+sudo iptables -n -L -t nat

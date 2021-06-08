@@ -17,16 +17,23 @@ docker run -p [outside port]:[inside port]/[protocol]
 docker tun -p 1234:1234/udp
 #para especificar una network
 docker run --network [NOMBRE DE RED]
+#Si queremos darle acceso a toda la red del host
+docker run --net=host 
 #para linkear con otro docker
 docker run --rm -ti --link [NOMBRE DEL OTRO DOCKER] --name [NOMBRE DEL DOCKER]
 #Para especificar un Volumen
 docker run -ti -v [path del directorio]:[path de como vamos a encontrar el volumen dentro del docker] ubuntu bash
+#para darle privilegios sudo al docker sobre el host
+docker run --privileged=true
 
 #correr el getting starter
 docker run -d -p 80:80 docker/getting-started
 
 #listar los docker que se estan ejecutando
 docker ps
+
+#Inspeccionar un proceso de un docker
+docker inspect [NOMBRE DE DOCKER]
 
 #attach: para entrar al docker dentro de la sesion de la terminal
 docker attach [NOMBRE CONTAINER]
