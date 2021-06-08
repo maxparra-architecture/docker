@@ -69,7 +69,7 @@ docker commit [CONTAINER ID]
 docker tag  [sha] [NOMBRE DE LA IMAGEN]
 
 #otra forma de hacer una nueva imagen a partir de un container (esta es la que mas se usa)
-docker commit [NOMBRE DOCKER] [ONOMBRE IMAGEN]:[NOMBRE TAG]
+docker commit [NOMBRE DOCKER] [NOMBRE IMAGEN]:[NOMBRE TAG]
 
 #Estandar que se maneja para los tags
 registry.example.com:port/organization/image-name:version-tag
@@ -77,6 +77,9 @@ registry.example.com:port/organization/image-name:version-tag
 #Eliiminar una imagen
 docker rmi [NOMBRE DE LA IMAGEN]
 
+#colocarle un TAG a una imagen local para subirla al registry
+docker tag [IMAGE:TAG] [DOCKER HUB USER]/[REPO]]:[TAG]
+docker tag hola:latest mparraaws/images-training:hola
 
 ########################################################
 # DOCKER VOLUMES
