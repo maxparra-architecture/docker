@@ -74,12 +74,23 @@ docker commit [NOMBRE DOCKER] [NOMBRE IMAGEN]:[NOMBRE TAG]
 #Estandar que se maneja para los tags
 registry.example.com:port/organization/image-name:version-tag
 
-#Eliiminar una imagen
+#Eliminar una imagen
 docker rmi [NOMBRE DE LA IMAGEN]
+docker rm [ID IMAGEN]
 
+#Forzar la eliminación de una imagen
+docker rm [ID IMAGEN] -f
+
+#Para trabajar con DockerHub o un Registry
 #colocarle un TAG a una imagen local para subirla al registry
-docker tag [IMAGE:TAG] [DOCKER HUB USER]/[REPO]]:[TAG]
+docker tag [IMAGE:TAG] [DOCKER HUB USER]/[REPO]:[TAG]
 docker tag hola:latest mparraaws/images-training:hola
+
+#push
+docker push [DOCKER HUB USER]/[REPO]
+
+#pull
+docker pull [DOCKER HUB USER]/[REPO]:[TAG]
 
 ########################################################
 # DOCKER VOLUMES
