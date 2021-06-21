@@ -113,3 +113,35 @@ docker run -ti --volumes-from [NOMBRE PRIMER DOCKER] ubuntu bash
 ########################################################
 #Crear una imagen a partir de un dockerfile. Esto funciona parados en la carpeta donde esta el docker file
 docker build -t [NOMBRE DE LA IMAGEN] .
+
+
+########################################################
+# DOCKER SWARM
+########################################################
+#https://docs.docker.com/engine/reference/commandline/swarm/
+#Inicializar el docker swarm. Este comando se debe ejecutar en el nodo lider.
+docker swarm init
+
+#si tenemos varias interfaces de red, nos toca especificar cual vamos a dedicar al docker swarm
+docker swarm init --advertise-addr fdb2:2c26:f4e4:0:8c19:4fbd:928f:64d8
+
+#Para agregar un nodo al swarm cluster. Ejecutar esto en el nodo que se quiere agregar al cluster
+docker swarm join --token [TOKEN]
+
+#para agregar un nodo manager al swarm cluster ejecutar el siguiente comando en el nodo principal y despues coger el comando que da y ejecutarlo en el nodo que se quiere agregar.
+docker swarm join-token manager
+
+#para ver los nodos que hacen parte del swarm cluster
+docker node ls
+
+#desplegar una app (se conoce como service) en el cluster de swarm
+docker service create --name[NOMBRE DEL SERVICIO] --replicas=[NUMERO DE REPLICAS] [IMAGEN]
+#Ejemplo
+docker service create --name webapp1 --replicas=6 ngnix
+
+#para ver los servicios corriendo en el cluster
+docker service ls
+
+#para ver los docker corriendo
+docker ps
+

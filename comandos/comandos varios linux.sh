@@ -26,3 +26,12 @@ brctl show
 #mostrar tablas de ip
 apt-get install iptables
 sudo iptables -n -L -t nat
+
+#para subir a root en ubuntu y no tener que escribir sudo todo el tiempo
+sudo su -
+
+#Cambiar el hostname en ubuntu
+hostname [NUEVO NOMBRE DE HOSTNAME]
+
+#Verficar el hostname
+hostname
